@@ -9,16 +9,19 @@ app.get("/uniqlo", async (req, res) => {
 
   try {
     browser = await puppeteer.launch({
-      args: ["--no-sandbox", "--disable-setuid-sandbox"],
-      headless: true
-    });
+  args: ["--no-sandbox", "--disable-setuid-sandbox"],
+  headless: true
+});
 
-    const page = await browser.newPage();
+const page = await browser.newPage();
+await page.setUserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36");
 
-    await page.goto("https://www.uniqlo.com/it/it/", {
-      waitUntil: "networkidle2",
-      timeout: 15000
-    });
+console.log("🚀 Aperta pagina, inizio scraping...");
+
+await page.goto("https://www.uniqlo.com/it/it/", {
+  waitUntil: "networkidle2",
+  timeout: 30000
+});
 
     const products = await page.evaluate(() => {
       const items = {};
