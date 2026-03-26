@@ -1,24 +1,18 @@
 {
   "name": "uniqlo-scraper",
   "version": "1.0.0",
-  "description": "Scraper Uniqlo per prezzi e prodotti",
+  "description": "Scraper Uniqlo per Render",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
   },
-  "engines": {
-    "node": "22.x"
-  },
   "dependencies": {
     "express": "^4.18.2",
-    "puppeteer": "^21.3.3"
+    "puppeteer-core": "^21.3.3"
   },
-  "keywords": [
-    "uniqlo",
-    "scraper",
-    "puppeteer",
-    "render"
-  ],
+  "engines": {
+    "node": ">=22.0.0"
+  },
   "author": "ro-dif",
-  "license": "MIT"
+  "license": "ISC"
 }
