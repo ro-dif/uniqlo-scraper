@@ -8,10 +8,11 @@ app.get("/uniqlo", async (req, res) => {
   let browser;
 
   try {
-    browser = await puppeteer.launch({
-      args: ["--no-sandbox", "--disable-setuid-sandbox"],
-      headless: "new"
-    });
+   browser = await puppeteer.launch({
+  executablePath: "/usr/bin/chromium-browser",
+  args: ["--no-sandbox", "--disable-setuid-sandbox"],
+  headless: true
+});
 
     const page = await browser.newPage();
 
