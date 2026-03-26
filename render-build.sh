@@ -2,15 +2,16 @@
 # exit on error
 set -o errexit
 
-# Installa tutte le dipendenze
+echo "🚀 Inizio build su Render..."
+
+# Installa le dipendenze Node.js
 npm install
 
-# Assicurati che la cache di Puppeteer esista
+# Imposta la cache di Puppeteer
 PUPPETEER_CACHE_DIR=/opt/render/.cache/puppeteer
 mkdir -p $PUPPETEER_CACHE_DIR
 
-# Installa Chromium tramite Puppeteer
+# Installa Chromium completo tramite Puppeteer
 npx puppeteer browsers install chrome
 
-# Copia il browser nella cache per futuri deploy
-cp -R /opt/render/project/src/.cache/puppeteer/chrome/ $PUPPETEER_CACHE_DIR || true
+echo "✅ Build completata"
